@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rock, Paper, Scissors</title>
 </head>
+
 <body>
-    
+
 
     <!-- I need the user to make a choice 
 
@@ -20,36 +22,52 @@ Compare the choices and determine a win, loss or tie
 Display the result to the user  -->
 
 
-<!--FUNCTION FOR PRESSING CHARACTER ON KEYBOARD-->
-<script> type = "text/javascript"
+    <!--FUNCTION FOR PRESSING CHARACTER ON KEYBOARD-->
+    <script> type = "text/javascript"
 
-<!-- test to determine if pressing button works  -->
+        //<!-- test to determine if pressing button works  -->
 
-document.onkeyup = function(){
-    // alert("working");  < ----test code>
-
-    let options = ["r","p","s"];
-
-    let userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-console.log(userGuess)
-    }
-
-    // <!--ARRAY FOR COMPUTER TO CHOOSE R P or S-->
-
-let options = ["r","p","s"];
-let computerGuess = options[Math.floor(Math.random()*options.length)];
-
-// display r p or s to the screen 
-console.log(computerGuess);
+        // options is outside of function: 
+        let options = ["r", "p", "s"];
 
 
-if(userGuess == 'r' || userGuess == 'p' || userGuess == 's') {
-    alert("Chosen Correctly"); 
-} else {
-    alert("Please choose r P or s");
-}
+        document.onkeyup = function () {
+            // alert("working");  < ----test code>
+
+            let userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+            console.log(userGuess)
+
+            // <!--ARRAY FOR COMPUTER TO CHOOSE R P or S-->
+
+            let computerGuess = options[Math.floor(Math.random() * options.length)];
+
+            // display r p or s to the screen 
+            console.log(computerGuess);
 
 
-</script>
+            if (userGuess == 'r' || userGuess == 'p' || userGuess == 's') {
+
+                // remmed out alert. was only in place to test if statement
+                // alert("Chosen Correctly");
+
+                if ((userGuess == 'r') && (computerGuess == 'r') ) {
+                    alert("You tie !!")
+                }
+                if ((userGuess == 'r') && (computerGuess == 's')|| (userGuess == 'p') && (computerGuess == 's') ||(userGuess == 's') && (computerGuess == 'p')){
+                    alert("You Win !!")
+                }
+                if ((userGuess == 's') && (computerGuess == 'r') ||(userGuess == 'p') && (computerGuess == 's') || (userGuess == 'r') && (computerGuess == 'p')){
+                    alert("You lose !!")
+            } 
+            if ((userGuess == computerGuess)) {
+                alert("You tie")
+            }
+            } else {
+                alert("Please choose R, P or S");
+            }
+        }
+
+    </script>
 </body>
+
 </html>
